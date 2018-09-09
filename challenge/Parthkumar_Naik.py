@@ -20,18 +20,14 @@ import numpy as np
 #from util.X import ... 
 
 def classify(im):
-    '''
-    Example submission for coding challenge. 
+    #method to classify labels
+    random_number = np.randon.randint (low=0, high =len(labels)-1)
+    #finding random integer
+    return labels [random_number]
     
-    Args: im (nxmx3) unsigned 8-bit color image 
-    Returns: One of three strings: 'brick', 'ball', or 'cylinder'
-    
-    '''
-    
-    
-
-    #Let's guess randomly! Maybe we'll get lucky.
-    labels = ['brick', 'ball', 'cylinder']
-    random_integer = np.random.randint(low = 0, high = 3)
-    
-    return labels[random_integer]
+    #returning a value
+    print "Enter some names:"
+    labels = raw_input().split()
+    #splitting labels
+    print "classify:", classify(labels)
+    #print generated label

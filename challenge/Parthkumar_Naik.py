@@ -19,7 +19,7 @@ import numpy as np
 #It's kk to import whatever you want from the local util module if you would like:
 #from util.X import ... 
 
-def classify(im):
+def classify(labels):
     #method to classify labels
     random_number = np.randon.randint (low=0, high =len(labels)-1)
     #finding random integer

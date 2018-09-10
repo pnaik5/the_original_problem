@@ -26,7 +26,7 @@ def classify(labels):
     return labels [random_number]
     
     #returning a value
-    print "Enter some names:"
+    print ("Enter some names:") 
     labels = raw_input().split()
     #splitting labels
     print "classify:", classify(labels)

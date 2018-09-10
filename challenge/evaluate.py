@@ -13,7 +13,7 @@ from matplotlib.pyplot import imread
 import time
 
 #Import student's method:
-from sample_student import classify
+from Parthkumar_Naik import classify
 
 program_start = time.time()
 

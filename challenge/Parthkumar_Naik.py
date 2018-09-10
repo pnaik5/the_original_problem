@@ -28,5 +28,5 @@ def classify(labels):
     print ("Enter some names:") 
     labels = raw_input().split()
     #splitting labels
-    print "classify:", classify(labels)
+    print ("classify:"), classify(labels)
     #print generated label

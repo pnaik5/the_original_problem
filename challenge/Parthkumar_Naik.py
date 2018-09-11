@@ -15,18 +15,79 @@
 ## ---------------------------- ##
 
 import numpy as np
-#It's kk to import whatever you want from the local util module if you would like:
-#from util.X import ... 
 
-def classify(labels):
-    #method to classify labels
-    random_number = np.randon.randint (low=0, high =len(labels)-1)
-    #finding random integer
-    return labels [random_number]
+labels = ['brick', 'ball', 'cylinder']
+"""
+brick = 0;
+ball = 1;
+cylinder = 2;
+"""
+
+class KNN(object):""""a kNN classifier with L2 distance"""
+
+def __init__(self):
+    pass
+
+def train(self, X, y):
+    self.X_train = X
+    self.y_train = y
+   
+
+def classify(self, X, k=1):
+   """
+       predict the label
+   """
+   distances = L2Distance(X)
+
+   return self.predictLabels(distances)
+
+
+def L2Distance(self, X):
+   #test between the images
+    num_test = X.shape[0]
+    num_train = self.X_train.shape[0]
+    dists = np.zeros((num_test, num_train))
+
+    dists = np.sqrt(np.sum(X**2, axis=1).reshape(num_test, 1)
+     + np.sum(self.X_train**2, axis=1) - 2 * X.dot(self.X_train.T))
+    return dists
+
+
+def predictLabels(self, dists, k=1):
+    """
+    find nearest test image
+    """
+    num_test = dists.shape[0]
+    y_pred = np.zeros(num_test)
+    for i in range(num_test):
+
+      closest_y = []
+
+      top_k_indx = np.argsort(dists[i])[:k]
     
-    #returning a value
-    print ("Enter some names:") 
-    labels = raw_input().split()
-    #splitting labels
-    print ("classify:"), classify(labels)
-    #print generated label
+      closest_y = self.y_train[top_k_indx]
+    
+      vote = Counter(closest_y)
+    
+      count = vote.most_common()
+
+      y_pred[i] = count[0][0]
+    return y_pred
+
+
+"""
+#initialize a knn classifer
+
+classifier = KNearestNeighbor()
+
+classifier.train(X_train, y_train)
+
+label = classifier.classify(im)
+
+if im ==0:
+   out = "brick"
+elif(im==1):
+   out = "ball"
+else:
+   out = "cylinder"
+"""
